@@ -211,6 +211,7 @@ header img {
     border-radius: 50px;
     margin: 2%;
     margin-top: 0;
+    color: #fff;
 }
 
 .XP-amount {
@@ -223,6 +224,7 @@ header img {
     padding: 50px;
     background: #84172c;
     border-radius: 50%;
+    color: #fff;
 }
 
 .progress {
