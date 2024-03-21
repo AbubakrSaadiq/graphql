@@ -1,0 +1,392 @@
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: #b1ab94;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    width: 60px;
+}
+
+.log-img {
+    width: 20px;
+}
+
+.log-span {
+    padding-right: 5px;
+}
+
+.logout {
+    font-size: 18px;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #8e1533;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    width: 50vw;
+    height: 60vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: "login";
+    box-shadow: 0 0 17px 10px rgb(0 0 0 / 30%);
+    border-radius: 20px;
+    background: #dbc797;
+    overflow: hidden;
+}
+
+.design {
+    grid-area: design;
+    display: none;
+    position: relative;
+}
+
+.rotate-45 {
+    transform: rotate(-45deg);
+}
+
+.design .pill-1 {
+    bottom: 0;
+    left: -40px;
+    position: absolute;
+    width: 70px;
+    height: 200px;
+    background: linear-gradient(#ff966d, #fa538d, #89379c);
+    border-radius: 40px;
+}
+
+.design .pill-2 {
+    top: -170px;
+    left: -80px;
+    position: absolute;
+    height: 450px;
+    width: 180px;
+    background: linear-gradient(#ff966d, #fa538d, #89379c);
+    border-radius: 200px;
+    border: 25px solid #e2c5e2;
+}
+
+.design .pill-3 {
+    top: -100px;
+    left: 160px;
+    position: absolute;
+    height: 200px;
+    width: 80px;
+    background: linear-gradient(#ff966d, #fa538d, #89379c);
+    border-radius: 70px;
+}
+
+.design .pill-4 {
+    bottom: -170px;
+    left: 250px;
+    position: absolute;
+    height: 300px;
+    width: 100px;
+    background: linear-gradient(#ff966d, #fa538d);
+    border-radius: 70px;
+}
+
+
+.login {
+    grid-area: login;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #ece5d1;
+}
+
+.login h3.title {
+    margin: 15px 0;
+}
+
+.text-input {
+    background: #b1ab94;
+    height: 40px;
+    display: flex;
+    width: 60%;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0 15px;
+    margin: 5px 0;
+}
+
+.text-input input {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.text-input img {
+    width: 15px;
+}
+
+::placeholder {
+    color: #000;
+}
+
+.login-btn {
+    font-size: 14px;
+    color: #8e1533;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 110px;
+    height: 30px;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+    background-color: #dbc797;
+}
+
+.error-message{
+    display: none;
+    font-weight: 700;
+    font-size: 14px;
+    color: red;
+}
+
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: 50% 50%;
+        grid-template-areas: "design login";
+    }
+
+    .design {
+        display: block;
+    }
+}
+
+
+/* ---------- Interface ---------- */
+
+.user-infos {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    display: block;
+}
+
+/* Style des sections enfants */
+.user-data {
+    display: flex;
+    width: 90%;
+    height: 45vh;
+    margin-left: 10%;
+}
+
+.user-identification {
+    padding: 50px;
+    width: 35%;
+    min-width: 250px;
+    height: 70%;
+    background: #84172c;
+    border-radius: 50px;
+    margin: 2%;
+    margin-top: 0;
+}
+
+.XP-amount {
+    width: 15%;
+    min-width: 200px;
+    height: 70%;
+    margin: 2%;
+    margin-top: 0;
+    margin-top: 0;
+    padding: 50px;
+    background: #84172c;
+    border-radius: 50%;
+}
+
+.progress {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.audit-graph {
+    width: 20%;
+    min-width: 250px;
+    height: 250px;
+    border-radius: 10%;
+    height: 100%;
+    background: #dbc797;
+    padding: 0;
+    margin: 4%;
+    margin-top: 0;
+}
+
+.transact {
+    padding: 15px;
+    padding-bottom: 0;
+    padding-bottom: 0;
+    text-align: center;
+    font-size: 20px;
+}
+
+.graphicRatio {
+    border-radius: 10px;
+    width: 100%;
+    height: 110%;
+    text-align: left;
+
+}
+
+.container-graphic {
+    display: flex;
+    justify-content: space-around;
+}
+
+.svg-ratio {
+    width: 100%;
+    height: 75%;
+    margin: 0;
+    margin-left: -25px;
+}
+
+
+.svg-ratio text {
+    font-size: 15px;
+    padding: 10px;
+}
+
+.xp-div {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 15px;
+}
+
+.xp-sum {
+    font-size: 45px;
+    padding: 8px;
+}
+
+.xp-span {
+    font-size: 35px;
+}
+
+.level-div {
+    display: flex;
+    align-items: center;
+}
+
+.level-amount {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.level-span {
+    margin-right: 25px;
+    font-weight: 500;
+}
+
+.name-div {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    color: rgb(212, 156, 51);
+}
+
+.name-div p {
+    font-size: clamp(20px, 2vw, 46px);
+    padding-right: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.name-div span {
+    font-size: clamp(18px, 2vw, 40px);
+    font-weight: 800;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.nickname,
+.e-mail,
+.projects,
+.ratio {
+    padding: 12px;
+    font-size:clamp(16px, 1vw, 24px);
+    border-bottom: 1px solid #686868;
+}
+
+
+.svg-skill {
+	width: 95%;
+	height: 80%;
+    display: flex;
+    justify-content: center;
+    margin-left: 5%;
+}
+.svg-skill text,
+.svg-ratio text{
+    text-align: center;
+    font-weight: 600;
+}
+rect {
+	transition: height 0.5s;
+	cursor: pointer;
+}
+
+
+@media (min-width: 768px) {
+}
+
+.skills{
+    width: 93%;
+    display: flex;
+    overflow-x: scroll;
+    margin: 50px;
+    background: #dbc797;
+    color: #84172c;
+    border-radius: 20px;
+    height: 55%;
+    justify-content: center;
+    position: relative;
+}
+.skills h2{
+    width: 90%;
+    padding: 12px;
+    text-align: center;
+    color: #000;
+}
+.graphicBox{
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.graphs{
+    margin-top: 50px;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    height: 45%;
+}
