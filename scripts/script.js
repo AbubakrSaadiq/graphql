@@ -85,7 +85,7 @@ function logged(DataUser) {
     logSpan.textContent = "LOGOUT";
     const logImg = document.createElement("img");
     logImg.className = "log-img";
-    logImg.src = "/templates/front-tools/images/logout.png"
+    logImg.src = "/front-tools/images/logout.png"
 
     logOut.append(logSpan, logImg);
 
