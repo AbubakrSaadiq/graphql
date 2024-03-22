@@ -67,7 +67,7 @@ export function containerRation(User) {
     return containerGraphic
 }
 export function containerSkills(skillsData) {
-    const containerWidth = 1100; // Largeur du conteneur (peut être ajustée en fonction de votre mise en page)
+    const containerWidth = 1100; 
     const barGap = 10;
     const maxHeight = 200;
     
@@ -109,14 +109,13 @@ export function containerSkills(skillsData) {
         contentSVG += content.outerHTML;
     });
     const containerGraphic = document.createElement('div')
-    containerGraphic.className = "container-graphic"
+    containerGraphic.className = "graphicBox"
+    containerGraphic.style.overflowX = "scroll"
     containerGraphic.innerHTML = `
-        <div class="graphicBox">
             <h2>Skills</h2>
             <svg class="svg-skill">
                 ${contentSVG}
             </svg>
-        </div>
     `
     return containerGraphic
 }

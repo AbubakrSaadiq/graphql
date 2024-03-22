@@ -347,6 +347,7 @@ header img {
     display: flex;
     justify-content: center;
     margin-left: 5%;
+    /* overflow-x: auto; */
 }
 .svg-skill text,
 .svg-ratio text{
@@ -365,7 +366,6 @@ rect {
 .skills{
     width: 93%;
     display: flex;
-    overflow-x: scroll;
     margin: 50px;
     background: #dbc797;
     color: #84172c;
