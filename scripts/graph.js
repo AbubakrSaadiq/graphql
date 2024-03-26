@@ -66,20 +66,14 @@ export function containerRation(User) {
         </div>`
     return containerGraphic
 }
-export function containerSkills(skillsData) {
-    const containerWidth = 1100; // Largeur du conteneur (peut être ajustée en fonction de votre mise en page)
-    const barGap = 10;
-    const maxHeight = 200;
-    
-    // Calculer la largeur du rectangle en fonction du nombre de compétences
+
+export function createSkillSVG(skillsData, containerWidth, barGap, maxHeight) {
     const numSkills = skillsData.length;
     const barWidth = (containerWidth - (numSkills - 1) * barGap) / numSkills;
-    let contentSVG = ``;
-    let id = 0;
+    let contentSVG = '';
     skillsData.forEach((skill, index) => {
-        id++
         let content = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        const x = index * (barWidth + barGap) + 30 ;
+        const x = index * (barWidth + barGap) + 30;
         const height = (skill.amount / 100) * maxHeight;
         const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
         rect.setAttribute('x', x);
@@ -87,38 +81,41 @@ export function containerSkills(skillsData) {
         rect.setAttribute('width', barWidth);
         rect.setAttribute('height', height);
         rect.setAttribute('fill', "#84172c");
-        rect.classList.add('bar-rect')
-        contentSVG += rect.outerHTML
+        rect.classList.add('bar-rect');
+        // Ajout d'un identifiant unique au texte correspondant
+        content.setAttribute('id', `text-${index}`);
+        contentSVG += rect.outerHTML;
         const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         applyStyle(text, {
             "x": `${x + barWidth / 5}`,
             "y": `${maxHeight + 20}`,
             "fill": `#000`,
-            "font-size": "10px",
+            "font-size": "0.5em",
+            // Supprimer le display: none initial
         });
         text.textContent = String(skill.type).replace('skill_', '');
-        contentSVG += text.outerHTML
+        contentSVG += text.outerHTML;
         applyStyle(content, {
             "x": `${(x + barWidth / 5)}`,
             "y": `${maxHeight + 35}`,
             "fill": "#84172c",
-            "font-size": "10px",
-            "font-family": "Arial, sans-serif"
+            "font-size": "0.8em",
+            "font-family": "Arial, sans-serif",
+            // Supprimer le display: none initial
         });
         content.textContent = `${skill.amount} %`;
         contentSVG += content.outerHTML;
+        
+        // Ajout des gestionnaires d'événements pour gérer le hover
+        rect.addEventListener('mouseover', () => {
+            document.getElementById(`text-${index}`).style.display = 'block';
+        });
+        
+        rect.addEventListener('mouseout', () => {
+            document.getElementById(`text-${index}`).style.display = 'none';
+        });
     });
-    const containerGraphic = document.createElement('div')
-    containerGraphic.className = "container-graphic"
-    containerGraphic.innerHTML = `
-        <div class="graphicBox">
-            <h2>Skills</h2>
-            <svg class="svg-skill">
-                ${contentSVG}
-            </svg>
-        </div>
-    `
-    return containerGraphic
+    return contentSVG;
 }
 
 function applyStyle(element, styles) {

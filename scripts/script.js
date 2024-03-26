@@ -1,6 +1,7 @@
 import { Showlogin } from "./login.js";
 import { getToken, query, main, head, encryptage } from "./constants.js";
 import { createSections } from "./interface.js";
+import { createSkillSVG } from "./graph.js";
 
 // Affichage du formulaire de connexion dès le chargement de la page
 main.appendChild(Showlogin());
@@ -104,5 +105,49 @@ function logged(DataUser) {
     const sections = createSections(DataUser);
     main.appendChild(sections.userInfosSection);
     main.style.display = 'block';
+
+
+
+    // essai skill svg insertion
+
+    function updateSkillsContainerWidth() {
+        const containerWidth = window.innerWidth * 0.8;
+        const exist = document.querySelector(".skills")
+        if (exist) {
+            exist.innerHTML = ""
+            exist.remove()
+        }
+        const skills = containerSkills(DataUser.skills, containerWidth); 
+        skills.classList.add('skills');
+        sections.userInfosSection.appendChild(skills);
+    }
+
+    updateSkillsContainerWidth();
+
+    window.addEventListener('resize', updateSkillsContainerWidth);
+
+
+
     console.log('Sections affichées');
+}
+
+
+function containerSkills(skillsData, containerWidth) {
+    const barGap = 10;
+    const maxHeight = 200;
+
+    const contentSVG = createSkillSVG(skillsData, containerWidth, barGap, maxHeight);
+
+    const containerGraphic = document.createElement('div')
+    containerGraphic.className = "container-graphic"
+    containerGraphic.innerHTML = `
+        <div class="graphicBox">
+            <h2>Skills</h2>
+            <svg class="svg-skill">
+                ${contentSVG}
+            </svg>
+            <g id="tooltip-container"></g>
+        </div>
+    `
+    return containerGraphic;
 }

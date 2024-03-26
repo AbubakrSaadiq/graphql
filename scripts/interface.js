@@ -1,4 +1,4 @@
-import { containerRation, containerSkills, } from "./graph.js";
+import { containerRation } from "./graph.js";
 
 // attributs
 export function createSections(DataUser) {
@@ -84,8 +84,8 @@ export function createSections(DataUser) {
 
     
 
-    const skills = containerSkills(DataUser.skills);
-    skills.classList.add('skills');
+    // const skills = containerSkills(DataUser.skills);
+    // skills.classList.add('skills');
 
     const graphs = document.createElement('div');
     graphs.className = 'graphs';
@@ -96,7 +96,7 @@ export function createSections(DataUser) {
 
     userInfosSection.appendChild(UserData);
     userInfosSection.appendChild(graphs);
-    userInfosSection.appendChild(skills);
+    // userInfosSection.appendChild(skills);
 
 
 
