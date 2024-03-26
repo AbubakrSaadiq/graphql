@@ -90,7 +90,7 @@ export function createSkillSVG(skillsData, containerWidth, barGap, maxHeight) {
             "x": `${x + barWidth / 5}`,
             "y": `${maxHeight + 20}`,
             "fill": `#000`,
-            "font-size": "0.5em",
+            "font-size": "0.4em",
             // Supprimer le display: none initial
         });
         text.textContent = String(skill.type).replace('skill_', '');
@@ -99,7 +99,7 @@ export function createSkillSVG(skillsData, containerWidth, barGap, maxHeight) {
             "x": `${(x + barWidth / 5)}`,
             "y": `${maxHeight + 35}`,
             "fill": "#84172c",
-            "font-size": "0.8em",
+            "font-size": "0.6em",
             "font-family": "Arial, sans-serif",
             // Supprimer le display: none initial
         });
